@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Coding Challenge 6
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                background-color: lightseagreen;
+            }
+           
+        </style>
+    </head>
+    <body>
+        <h1> Quadratic Formula </h1>
+
+        <button onclick="quadratic()">Find the root</button>
+
+        <h4 id="result"></h4>
+
+        <script>
+            function quadratic(){
+                var a = parseInt(prompt("input a", "1"));
+                var b = parseInt(prompt("input b", "-16"));
+                var c = parseInt(prompt("input c", "64"));
+               
+  			    var bsquared = Math.pow(b,2);
+                var d = (bsquared) - 4 * (a * c);// d is for discriminant
+				var sqrd = Math.sqrt(d);//less room for error this way
+				console.log(d);
+                
+				if (d==0){//if discriminant is 0
+                    var x1 = ( -b + sqrd ) / ( 2 * a );
+                    console.log(x1);
+                    document.getElementById("result").innerHTML="x =" + " " + x1;
+                }
+				
+				if (d>0){//if discriminant is more than 0
+                    var x1 = ( -b + sqrd ) / ( 2 * a );
+					var x2 = ( -b - sqrd ) / ( 2 * a );
+                    console.log(x1);
+                    document.getElementById("result").innerHTML="x =" + " " + x1 + " " + ";x ="+ " " + x2;
+                }
+				
+				else if(d<0){//to be extra safe
+					document.getElementById("result").innerHTML="Imaginary";
+				}
+            }
+        </script>
+    </body>
+</html>
