@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Coding Challenge 5
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                background-color: lightseagreen;
+            }
+           
+        </style>
+    </head>
+    <body>
+        <h1> Modified FLAMES </h1>
+
+        <button onclick="flames()">Match Names</button>
+        <h3 id="name"> Names will appear here </br> Names will appear here </h3>
+
+        <h4>FLAMES Result:</h4>
+        <h3 id="result"></h3>
+
+
+        <script>//sorry if mali kay wala ko na fully test ang all possiblities
+            function flames(){
+				var firstName = prompt("Enter the first name","firstname");
+				var secondName = prompt("Enter the second name","secondname");
+				var counting = firstName.length + secondName.length;
+				document.getElementById("name").innerHTML=firstName + " " + "</br> " + " " + secondName;
+				console.log(counting);
+				var loopctr = 0;
+				var namectr = 0;
+				var letterList = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+				while(loopctr<counting){//create a while loop to only add to x if it is a letter in the alphabet
+					console.log("working");
+					var currentChar = counting[loopctr];
+					var ltrctr=0;
+					while(ltrctr<=53){
+							if(currentChar == letterList[ltrctr]){
+								namectr++;
+							}
+						ltrctr++;
+					}
+					loopctr++;
+				}  
+				console.log(namectr);
+				//switch system to determine the value of result  using modulus
+				var FLAMES;
+				switch(namectr % 6) { //F L A M E S
+					case 1:
+						var FLAMES = "Friends";
+					break;
+					case 2:
+					    var FLAMES = "Lovers";
+					break;
+					case 3:
+						var FLAMES = "Acquaintances";
+					break;
+					case 4:
+					    var FLAMES = "Marriage";
+					break;
+					case 5:
+						var FLAMES = "Enemies";
+					break;
+					case 0:
+					    var FLAMES = "Sweethearts";
+					break;		
+				}
+				console.log(FLAMES);
+				document.getElementById("result").innerHTML = FLAMES;
+			}
+        </script>
+    </body>
+</html>
